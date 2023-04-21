@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.libre.starlibrary">
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- For Google Analytics -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <uses-feature
+        android:name="android.hardware.location.gps"
+        android:required="false"/>
+    <!--
+         Sensor requirements.  Making required=false for now - we do want to support
+         these users as best we can.
+    -->
+    <uses-feature
+        android:name="android.hardware.sensor.accelerometer"
+        android:required="false"/>
+    <uses-feature
+        android:name="android.hardware.sensor.compass"
+        android:required="false"/>
+    <uses-feature
+        android:name="android.hardware.faketouch"
+        android:required="false"/>
+    <uses-feature
+        android:name="android.hardware.faketouch.multitouch.distinct"
+        android:required="false"/>
+    <uses-feature
+        android:name="android.hardware.touchscreen"
+        android:required="false"/>
+    <uses-feature
+        android:name="android.hardware.touchscreen.multitouch.distinct"
+        android:required="false"/>
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="true"
+        android:xlargeScreens="true"/>
+    <application>
+        <activity
+            android:name="com.google.android.stardroid.activities.SplashScreenActivity"
+            android:label="Libre"
+            android:screenOrientation="nosensor"
+            android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name="com.google.android.stardroid.activities.DynamicStarMapActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:label="Libre"
+            android:launchMode="singleTask"
+            android:screenOrientation="nosensor"
+            android:theme="@style/FullscreenTheme"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable"/>
+        </activity>
+        <activity
+            android:name="com.google.android.stardroid.activities.EditSettingsActivity"/>
+        <activity
+            android:name="com.google.android.stardroid.activities.ImageGalleryActivity"/>
+        <activity
+            android:name="com.google.android.stardroid.activities.ImageDisplayActivity"
+            android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity
+            android:name="com.google.android.stardroid.activities.DiagnosticActivity"
+            android:label="@string/title_activity_diagnostic">
+        </activity>
+        <!-- Provides search suggestions. -->
+        <provider
+            android:name="com.google.android.stardroid.search.SearchTermsProvider"
+            android:authorities="com.google.android.stardroid.searchterms"
+            android:exported="false"
+            android:syncable="false"/>
+
+        <activity android:name="com.google.android.stardroid.activities.CompassCalibrationActivity"
+            android:launchMode="singleTop">
+        </activity>
+    </application>
+</manifest>
