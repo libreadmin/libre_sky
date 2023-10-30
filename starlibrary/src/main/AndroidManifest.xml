@@ -80,7 +80,7 @@
         <!-- Provides search suggestions. -->
         <provider
             android:name="com.google.android.stardroid.search.SearchTermsProvider"
-            android:authorities="com.google.android.stardroid.searchterms"
+            android:authorities="com.google.android.stardroid.searchtermsv2"
             android:exported="false"
             android:syncable="false"/>
 
