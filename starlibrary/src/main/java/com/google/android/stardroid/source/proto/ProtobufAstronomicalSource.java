@@ -55,7 +55,7 @@ public class ProtobufAstronomicalSource extends AbstractAstronomicalSource {
   // Ideally we'd get this from Context.getPackageName but for some reason passing it in as a
   // string via the contructor results in it always being null when I need it. Buggered if
   // I know why - it's certainly a concern. Hopefully this class won't be around for much longer.
-  public static final String PACKAGE = "com.tool.libre";
+  public static final String PACKAGE = "com.tool.librth";
 
   static {
     shapeMap.put(SourceProto.Shape.CIRCLE, PointSource.Shape.CIRCLE);
